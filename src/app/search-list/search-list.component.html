@@ -1,0 +1,38 @@
+<div [hidden]="!searchType">
+  <div *ngIf="searchType == 'youtube'">
+    <table style="margin-left: auth; margin-right: auto;">
+      <tr>
+        <th>thumbnail</th>
+        <th>title</th>
+      </tr>
+      <tr *ngFor="let youtube of contents">
+        <td>
+          <img src="{{youtube.thumbnail}}" (click)="playVideo(youtube.hrefString)">
+        </td>
+        <td>
+          <h4>{{youtube.title}}</h4>
+          <h6>{{youtube.description}}</h6>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+  <div *ngIf="searchType == 'naver'">
+    <table style="margin-left: auth; margin-right: auto;">
+      <tr>
+        <th>image</th>
+        <th>title</th>
+      </tr>
+      <tr *ngFor="let naver of contents">
+        <td>
+          <img src="{{naver.thumbnail}}" (click)="showNews(naver.hrefString)">
+        </td>
+        <td>
+          <h4>{{naver.title}}</h4>
+          <h6>{{naver.description}}</h6>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+</div>
